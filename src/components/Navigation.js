@@ -3,9 +3,11 @@ import {Nav, Navbar, NavbarBrand, NavDropdown } from 'react-bootstrap'
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle'
 import { NavLink } from 'react-router-dom'
+import useAuth from '../Auth/useAuth'
 import routes from '../helpers/routes'
 
 export default function Navigation() {
+    const {logout} = useAuth();
   return (
     <Navbar collapseOnSelect expand='lg' variant='dark' bg='dark'>
         <NavbarBrand as={NavLink} to={routes.home}> TaskerApp </NavbarBrand>
@@ -23,9 +25,10 @@ export default function Navigation() {
                 <Nav.Link as={NavLink} to={routes.login}> Iniciar Sesión </Nav.Link>
                 <Nav.Link as={NavLink} to={routes.register}> Registrarse </Nav.Link>
                 <Nav.Link as={NavLink} to={routes.account}> Mi cuenta </Nav.Link>
+                <Nav.Link to={routes.account} onClick={logout}> Cerrar Sesión </Nav.Link>
             </Nav>
 
         </NavbarCollapse>
     </Navbar>
   )
-}
+};

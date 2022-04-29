@@ -7,7 +7,7 @@ export default function Layout({children}) {
     <>
         <Navigation/>
         {children}
-        <h1>Footer</h1>
+        
     </>
   )
 }
