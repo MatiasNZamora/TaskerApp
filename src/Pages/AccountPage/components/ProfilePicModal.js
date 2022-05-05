@@ -14,7 +14,7 @@ export default function ProfilePicModal({isOpen, close}) {
         </Modal.Header>
         <Modal.Body>
             <Form>
-                {/* <Form.File/> */}
+                <input type='file'/>
             </Form>
           
         </Modal.Body>
