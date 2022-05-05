@@ -8,7 +8,7 @@ export default function HomePage() {
     <Container>
       <Row className='mt-5'>
         <Col xs={{span:12}} md={{span:6}} className='mb-5'>
-          <h2> Biemvenid@ a el gestor de tareas </h2>
+          <h2> Biemvenid@ a el gestor de tareas de equipos UNLAR </h2>
           <p> ¡Aqui podras gestionar tus proyectos! </p>
           <p>
             Marca, agrega, actualiza o elimina tus tareas
@@ -25,7 +25,7 @@ export default function HomePage() {
           src='/img/task-manager.svg' 
           alt='gestor-de-tareas'
           />
-          <p>¡Gestiona tu tiempo, mejora tu productividad!</p>
+          <p>¡Gestiona tu tiempo, mejora tu productividad con tus compañeros!</p>
         </Col>
       </Row>
     </Container>

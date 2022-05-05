@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Modal, Form, Button, Alert } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import changePasswordResolver from '../../../validations/changePasswordResolver';
 
 export default function ChangePasswordModal({ isOpen, close }) {
 
-    const { register, handleSubmit, formState:{errors} } = useForm({ resolver: changePasswordResolver });  
+    const { register, handleSubmit, formState:{errors}, reset } = useForm({ resolver: changePasswordResolver });  
 
     const onSubmit = (formData) => {
         alert('CHANGE PASSWORD')
 
     }
 
+    useEffect(() => {
+        if(!isOpen){
+            reset()
+        }
+    }, [isOpen])
+
   return (
-    <Modal show={ true } onHide={ close }>
+    <Modal show={ isOpen } onHide={ close }>
         <Modal.Header closeButton>
             <Modal.Title> Cambiar Contraseña </Modal.Title>
         </Modal.Header>
@@ -22,6 +28,7 @@ export default function ChangePasswordModal({ isOpen, close }) {
                 <Form.Group>
                     <Form.Label> Nueva contraseña</Form.Label>
                     <Form.Control
+                        type="password"
                         placeholder='Escribe una nueva contraseña'
                         {...register('password')}
                     />
@@ -30,7 +37,7 @@ export default function ChangePasswordModal({ isOpen, close }) {
                     
                         <Form.Text>
                             <Alert variant='danger'>
-                                "Error en el campo contraseña"
+                               {errors.password.message}
                             </Alert>
                         </Form.Text>
                         
